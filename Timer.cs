@@ -5,11 +5,12 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private float _delay = 0.5f;
-    public event Action<int> CountChange;
 
     private float _count = 0f;
     private bool _isRunning;
-    private Coroutine _corutine;
+    private Coroutine _coroutine;
+
+    public event Action<int> CountChange;
 
     private void Update()
     {
@@ -24,13 +25,13 @@ public class Timer : MonoBehaviour
         if (_isRunning == false)
         {
             _isRunning = true;
-            _corutine = StartCoroutine(ProcessTimer());
+            _coroutine = StartCoroutine(ProcessTimer());
         }
         else
         {
-            if (_corutine != null)
+            if (_coroutine != null)
             {
-                StopCoroutine(_corutine);
+                StopCoroutine(_coroutine);
                 _isRunning = false;
             }
         }
@@ -42,7 +43,6 @@ public class Timer : MonoBehaviour
 
         while (true)
         {
-            Debug.Log("Корутина воркает");
             _count++;
             CountChange?.Invoke((int)_count);
             yield return waitForSeconds;

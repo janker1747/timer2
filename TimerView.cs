@@ -8,18 +8,12 @@ public class TimerView : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_timer != null)
-        {
             _timer.CountChange += OnCountChanged;
-        }
     }
 
     private void OnDisable()
     {
-        if (_timer != null)
-        {
             _timer.CountChange -= OnCountChanged;
-        }
     }
 
     private void OnCountChanged(int count)

@@ -8,13 +8,14 @@ public class Timer : MonoBehaviour
 
     private float _count = 0f;
     private bool _isRunning;
+    private bool leftMouseButton = Input.GetMouseButtonDown(0);
     private Coroutine _coroutine;
 
     public event Action<int> CountChange;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (leftMouseButton)
         {
             HandleMouseButtonDown();
         }

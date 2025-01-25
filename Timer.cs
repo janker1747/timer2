@@ -38,7 +38,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private IEnumerator ProcessTimer()
+    private IEnumerator ProcessTimer() \\IncrementCounter
     {
         WaitForSeconds waitForSeconds = new WaitForSeconds(_delay);
 
